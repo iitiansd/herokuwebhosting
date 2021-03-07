@@ -3,6 +3,8 @@ require("./db/connection");
 const bodyparser = require('body-parser');
 
 const app = express();
+
+const port = process.env.PORT || 7000;
 app.use(bodyparser.urlencoded({extended:true}));
 app.get("/",function(req,res){
     res.send("Welcome MrSD world")
@@ -21,7 +23,7 @@ app.post("/calculator",function(req,res){
     let sum = n1+n2;
     res.send("The sum of two number"+sum);
 })
-app.listen(7000,function(req,res){
+app.listen(port,function(req,res){
     console.log("success");
     
 });
